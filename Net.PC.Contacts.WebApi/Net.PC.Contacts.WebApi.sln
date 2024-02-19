@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.PC.Contacts.WebApi", "Net.PC.Contacts.WebApi\Net.PC.Contacts.WebApi.csproj", "{0068FAA7-0D27-4626-928E-85410436D0EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.PC.Contacts.Repository", "Net.PC.Contacts.Repository\Net.PC.Contacts.Repository.csproj", "{00B35584-7E81-4A11-A8DA-179D6EA41767}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0068FAA7-0D27-4626-928E-85410436D0EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0068FAA7-0D27-4626-928E-85410436D0EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0068FAA7-0D27-4626-928E-85410436D0EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0068FAA7-0D27-4626-928E-85410436D0EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00B35584-7E81-4A11-A8DA-179D6EA41767}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00B35584-7E81-4A11-A8DA-179D6EA41767}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00B35584-7E81-4A11-A8DA-179D6EA41767}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00B35584-7E81-4A11-A8DA-179D6EA41767}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AD0F6F8D-DD4F-4471-B065-61782F00C755}
+	EndGlobalSection
+EndGlobal

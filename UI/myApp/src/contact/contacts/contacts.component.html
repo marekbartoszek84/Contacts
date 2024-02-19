@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="offset-10 col-md-2">
+    <a [routerLink]="['/contact/create']">Create contact</a>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let contact of contacts">
+            <td>{{contact.firstName}}</td>
+            <td>{{contact.lastName}}</td>
+            <td>{{contact.email}}</td>
+            <td><button type="button" id="details" class="btn btn-primary">Details</button></td>
+            <td><button type="button" id="delete" class="btn btn-danger" (click)="deleteContact(contact.id)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

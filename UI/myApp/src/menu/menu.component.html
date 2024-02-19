@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="collapseNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/contacts']" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">Contacts </a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link"[routerLink]="['/authentication/login']" routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"[routerLink]="['/authentication/add-user']" routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}">Add user</a>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</nav>

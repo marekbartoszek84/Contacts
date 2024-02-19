@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Vh7KO0jOLja05gVP47sW4noidHflZV8+VZz1AhWSJWE=",
+  "Source": "Net.PC.Contacts.WebApi",
+  "BasePath": "_content/Net.PC.Contacts.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

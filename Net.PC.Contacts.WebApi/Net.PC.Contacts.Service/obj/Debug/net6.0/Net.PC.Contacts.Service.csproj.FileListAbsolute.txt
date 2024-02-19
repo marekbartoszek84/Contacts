@@ -1,0 +1,12 @@
+C:\netpc\Contacts\Net.PC.Contacts.WebApi\Net.PC.Contacts.Service\bin\Debug\net6.0\Net.PC.Contacts.Service.deps.json
+C:\netpc\Contacts\Net.PC.Contacts.WebApi\Net.PC.Contacts.Service\bin\Debug\net6.0\Net.PC.Contacts.Service.dll
+C:\netpc\Contacts\Net.PC.Contacts.WebApi\Net.PC.Contacts.Service\bin\Debug\net6.0\Net.PC.Contacts.Service.pdb
+C:\netpc\Contacts\Net.PC.Contacts.WebApi\Net.PC.Contacts.Service\obj\Debug\net6.0\Net.PC.Contacts.Service.csproj.AssemblyReference.cache
+C:\netpc\Contacts\Net.PC.Contacts.WebApi\Net.PC.Contacts.Service\obj\Debug\net6.0\Net.PC.Contacts.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\netpc\Contacts\Net.PC.Contacts.WebApi\Net.PC.Contacts.Service\obj\Debug\net6.0\Net.PC.Contacts.Service.AssemblyInfoInputs.cache
+C:\netpc\Contacts\Net.PC.Contacts.WebApi\Net.PC.Contacts.Service\obj\Debug\net6.0\Net.PC.Contacts.Service.AssemblyInfo.cs
+C:\netpc\Contacts\Net.PC.Contacts.WebApi\Net.PC.Contacts.Service\obj\Debug\net6.0\Net.PC.Contacts.Service.csproj.CoreCompileInputs.cache
+C:\netpc\Contacts\Net.PC.Contacts.WebApi\Net.PC.Contacts.Service\obj\Debug\net6.0\Net.PC.Contacts.Service.dll
+C:\netpc\Contacts\Net.PC.Contacts.WebApi\Net.PC.Contacts.Service\obj\Debug\net6.0\refint\Net.PC.Contacts.Service.dll
+C:\netpc\Contacts\Net.PC.Contacts.WebApi\Net.PC.Contacts.Service\obj\Debug\net6.0\Net.PC.Contacts.Service.pdb
+C:\netpc\Contacts\Net.PC.Contacts.WebApi\Net.PC.Contacts.Service\obj\Debug\net6.0\ref\Net.PC.Contacts.Service.dll

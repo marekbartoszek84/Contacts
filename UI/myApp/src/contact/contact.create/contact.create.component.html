@@ -1,0 +1,59 @@
+<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">Add Contact</h1>
+
+    <form [formGroup]="contactForm" autocomplete="off" novalidate (ngSubmit)="addContact(contactForm.value)">
+      <div class="mb-3 row">
+        <label for="firstName" class="col-form-label col-sm-2">First Name:</label>
+        <div class="col-md-5">
+          <input type="text" id="firstName" formControlName="firstName" class="form-control" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="lastName" class="col-form-label col-sm-2">Last Name:</label>
+        <div class="col-md-5">
+          <input type="text" id="lastName" formControlName="lastName" class="form-control" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="email" class="col-form-label col-sm-2">Email:</label>
+        <div class="col-md-5">
+          <input type="email" id="email" formControlName="email" class="form-control" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="password" class="col-form-label col-sm-2">Password:</label>
+        <div class="col-md-5">
+          <input type="password" id="password" formControlName="password" class="form-control" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="phone" class="col-form-label col-sm-2">Phone:</label>
+        <div class="col-md-5">
+          <input type="text" id="phone" formControlName="phone" class="form-control" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="category" class="col-form-label col-sm-2">Category:</label>
+        <div class="col-md-5">
+          <select id="category" formControlName="category">
+            <option [ngValue]="null" disabled>Select Category</option>
+            <option *ngFor="let category of categories" [ngValue]="category.id">{{category.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="dateOfBirth" class="col-form-label col-sm-2">Date of birth:</label>
+        <div class="col-md-5">
+          <input type="date" id="dateOfBirth" formControlName="dateOfBirth" class="form-control" />
+        </div>
+      </div>
+      <br>
+      <div class="mb-3 row">
+        <div class="col-md-1">
+          <button type="submit" class="btn btn-info" [disabled]="!contactForm.valid">Create</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
