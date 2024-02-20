@@ -8,6 +8,7 @@ namespace Net.PC.Contacts.Repository.Repository
         IEnumerable<Contact> GetAll();
         Contact GetDetails(Guid id);
         void Add(Contact contact);
+        void Update(Contact contact);
         void Delete(Guid id);
     }
 
@@ -31,6 +32,7 @@ namespace Net.PC.Contacts.Repository.Repository
         {
             var result = context.Contacts?
                 .Include(c => c.Caategory)
+                .Include(c=> c.SubCategory)
                 .Where(c => c.Id == id).FirstOrDefault();
 
             return result;
@@ -52,6 +54,12 @@ namespace Net.PC.Contacts.Repository.Repository
                 context.Contacts?.Remove(contact);
                 context.SaveChanges();
             }
+        }
+
+        public void Update(Contact contact)
+        {
+            context.Contacts?.Update(contact);
+            context.SaveChanges();
         }
     }
 }

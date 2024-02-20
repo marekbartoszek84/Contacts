@@ -4,6 +4,7 @@ export interface ContactRequest {
   email: string;
   password: string;
   categoryId: string;
+  subCategoryId: string;
   phone: string;
   dateOfBirth: Date;
 }

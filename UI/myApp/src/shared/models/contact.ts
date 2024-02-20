@@ -1,4 +1,5 @@
 import { Category } from './category';
+import { SubCategory } from './subcategory';
 
 export interface Contact {
   id: string;
@@ -6,7 +7,10 @@ export interface Contact {
   lastName: string;
   email: string;
   password: string;
-  caategory: Category;
+  categoryId: string;
+  caategory?: Category;
+  subCategoryId: string;
+  subCategory?: SubCategory;
   phone: string;
   dateOfBirth: Date;
 }

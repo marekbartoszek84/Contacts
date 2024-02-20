@@ -12,6 +12,7 @@ namespace Net.PC.Contacts.WebApi
                 .ForMember(u => u.UserName, opt => opt.MapFrom(x => x.Email));
             CreateMap<Contact, ContactRequest>();
             CreateMap<ContactRequest, Contact>();
+            CreateMap<SubCategoryRequest, SubCategory>();
         }
     }
 }

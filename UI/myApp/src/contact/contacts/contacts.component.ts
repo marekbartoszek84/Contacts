@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../../shared/models/contact';
 import { ContactService } from '../../shared/services/contact.service';
+import { AuthenticationService } from '../../shared/services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contacts',
@@ -11,7 +13,11 @@ import { ContactService } from '../../shared/services/contact.service';
 export class ContactsComponent implements OnInit {
   public contacts: Contact[] = [];
 
-  constructor(private contactService: ContactService) {}
+  constructor(
+    private contactService: ContactService,
+    private authenticationService: AuthenticationService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getContacts();
@@ -27,6 +33,20 @@ export class ContactsComponent implements OnInit {
 
   deleteContact = (id: string) => {
     const apiAddress: string = 'api/contacts';
-    this.contactService.deleteContact(apiAddress, id).subscribe({});
+    this.contactService
+      .deleteContact(apiAddress, id)
+      .subscribe(() => this.getContacts());
+  };
+
+  editContact = (id: string) => {
+    this.router.navigate(['/contact/edit/' + id]);
+  };
+
+  detailsContact = (id: string) => {
+    this.router.navigate(['/contact/' + id]);
+  };
+
+  public isUserAuthenticated = () => {
+    return this.authenticationService.isUserAuthenticated();
   };
 }

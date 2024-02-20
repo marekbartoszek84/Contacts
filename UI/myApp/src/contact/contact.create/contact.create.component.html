@@ -1,8 +1,9 @@
 <div class="card">
   <div class="card-body">
-    <h1 class="card-title">Add Contact</h1>
+    <h1 *ngIf="isAddMode" class="card-title">Add Contact</h1>
+    <h1 *ngIf="!isAddMode" class="card-title">Edit Contact</h1>
 
-    <form [formGroup]="contactForm" autocomplete="off" novalidate (ngSubmit)="addContact(contactForm.value)">
+    <form [formGroup]="contactForm" autocomplete="off" novalidate (ngSubmit)="onSubmit(contactForm.value)">
       <div class="mb-3 row">
         <label for="firstName" class="col-form-label col-sm-2">First Name:</label>
         <div class="col-md-5">
@@ -36,9 +37,18 @@
       <div class="mb-3 row">
         <label for="category" class="col-form-label col-sm-2">Category:</label>
         <div class="col-md-5">
-          <select id="category" formControlName="category">
+          <select id="category" formControlName="categoryId">
             <option [ngValue]="null" disabled>Select Category</option>
             <option *ngFor="let category of categories" [ngValue]="category.id">{{category.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div *ngIf="subCategories.length>0"  class="mb-3 row">
+        <label for="subCategory" class="col-form-label col-sm-2">Sub - Category:</label>
+        <div class="col-md-5">
+          <select id="subCategory" formControlName="subCategoryId">
+            <option [ngValue]="null" disabled>Select Sub-category</option>
+            <option *ngFor="let sub of subCategories" [ngValue]="sub.id">{{sub.name}}</option>
           </select>
         </div>
       </div>
@@ -51,7 +61,7 @@
       <br>
       <div class="mb-3 row">
         <div class="col-md-1">
-          <button type="submit" class="btn btn-info" [disabled]="!contactForm.valid">Create</button>
+          <button type="submit" class="btn btn-info" [disabled]="!contactForm.valid">Save</button>
         </div>
       </div>
     </form>

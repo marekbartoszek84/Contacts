@@ -29,6 +29,13 @@ export class ContactService {
     );
   };
 
+  public updateContact = (route: string, body: Contact) => {
+    return this.http.put(
+      this.createCompleteRoute(route, this.envUrl.urlAddress),
+      body
+    );
+  };
+
   public deleteContact = (route: string, id: string) => {
     return this.http.delete(
       this.createCompleteRoute(route, this.envUrl.urlAddress) + '/' + id

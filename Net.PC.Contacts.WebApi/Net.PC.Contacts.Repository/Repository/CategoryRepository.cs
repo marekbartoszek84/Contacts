@@ -1,16 +1,12 @@
-﻿using Net.PC.Contacts.Repository.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+﻿using Microsoft.EntityFrameworkCore;
+using Net.PC.Contacts.Repository.Entities;
 
 namespace Net.PC.Contacts.Repository.Repository
 {
     public interface ICategoryRepository
     {
         IEnumerable<Category> GetAll();
+        void AddSubcategory(SubCategory subCategory);
     }
 
     public class CategoryRepository : ICategoryRepository
@@ -24,9 +20,17 @@ namespace Net.PC.Contacts.Repository.Repository
 
         public IEnumerable<Category> GetAll()
         {
-            var result = context.Categories?.ToList();
+            var result = context.Categories?
+                .Include(c => c.SubCategories)
+                .ToList();
 
             return result;
+        }
+
+        public void AddSubcategory(SubCategory subCategory)
+        {
+            context.SubCategories?.Add(subCategory);
+            context.SaveChanges();
         }
     }
 }

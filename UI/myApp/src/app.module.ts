@@ -13,6 +13,7 @@ import { ContactsComponent } from './contact/contacts/contacts.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { ContactCreateComponent } from './contact/contact.create/contact.create.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ContactComponent } from './contact/contact.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -37,12 +38,20 @@ export function tokenGetter() {
       {
         path: 'contacts',
         component: ContactsComponent,
-        canActivate: [AuthGuard],
       },
       {
         path: 'contact/create',
         component: ContactCreateComponent,
         canActivate: [AuthGuard],
+      },
+      {
+        path: 'contact/edit/:id',
+        component: ContactCreateComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'contact/:id',
+        component: ContactComponent,
       },
       {
         path: 'authentication',

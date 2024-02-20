@@ -8,7 +8,6 @@ using Net.PC.Contacts.WebApi.Models;
 namespace Net.PC.Contacts.WebApi.Controllers
 {
     [Route("api/contacts")]
-    [Authorize]
     [ApiController]
     public class ContactsController : ControllerBase
     {
@@ -38,6 +37,7 @@ namespace Net.PC.Contacts.WebApi.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Add(ContactRequest contactRequest)
         {
             var contact = _mapper.Map<Contact>(contactRequest);
@@ -50,7 +50,20 @@ namespace Net.PC.Contacts.WebApi.Controllers
             return Ok();
         }
 
+        [HttpPut]
+        [Authorize]
+        public IActionResult Update(Contact contact)
+        {
+            if (contact != null)
+            {
+                _contactRepository.Update(contact);
+            }
+
+            return Ok();
+        }
+
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete([FromRoute] Guid id)
         {
             _contactRepository.Delete(id);
