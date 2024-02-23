@@ -7,7 +7,10 @@ import { Category } from '../../shared/models/category';
 import { CategoryService } from '../../shared/services/category.service';
 import { SubCategory } from '../../shared/models/subcategory';
 import { Contact } from '../../shared/models/contact';
+import { formatDate } from '@angular/common';
+import { SubCategoryRequest } from '../../shared/models/subCategoryRequest';
 
+const OtherCategoryId = 'db9d8f23-1202-436b-9eae-49aa590a1e2a';
 @Component({
   selector: 'app-contact.create',
   standalone: false,
@@ -38,22 +41,36 @@ export class ContactCreateComponent implements OnInit {
       email: new FormControl(''),
       password: new FormControl(''),
       phone: new FormControl(''),
-      categoryId: new FormControl(''),
-      subCategoryId: new FormControl(''),
-      dateOfBirth: new FormControl(''),
+      categoryId: new FormControl(null),
+      subCategoryId: new FormControl(null),
+      dateOfBirth: new FormControl(null),
+      subCategoryName: new FormControl(null),
     });
 
     this.contactForm.get('categoryId')?.valueChanges.subscribe((val) => {
+      this.contactForm.get('subCategoryId')?.setValue(null);
       this.subCategories =
         this.categories.find((ca) => ca.id == val)?.subCategories ?? [];
+      this.contactForm.get('subCategoryName')?.setValue(null);
+    });
+
+    this.contactForm.get('subCategoryName')?.valueChanges.subscribe((val) => {
+      if (!this.isAddMode && val) {
+        this.contactForm.get('subCategoryId')?.setValue(null);
+      }
     });
 
     this.getCategories();
 
     if (!this.isAddMode && this.id) {
-      this.contactService
-        .getContact('api/contacts', this.id)
-        .subscribe((x) => this.contactForm.patchValue(x));
+      this.contactService.getContact('api/contacts', this.id).subscribe((x) => {
+        this.contactForm.patchValue({
+          ...x,
+          dateOfBirth: formatDate(x.dateOfBirth, 'yyyy-MM-dd', 'en'),
+          subCategoryName:
+            x.categoryId === OtherCategoryId ? x.subCategory?.name : null,
+        });
+      });
     }
   }
 
@@ -80,6 +97,10 @@ export class ContactCreateComponent implements OnInit {
       categoryId: formValues.categoryId,
       subCategoryId: formValues.subCategoryId,
       dateOfBirth: formValues.dateOfBirth,
+      subCategoryRequest: this.getSubCategoryRequest(
+        formValues.categoryId,
+        formValues.subCategoryName
+      ),
     };
 
     this.contactService.addContact('api/contacts', contact).subscribe({
@@ -113,6 +134,22 @@ export class ContactCreateComponent implements OnInit {
       });
     }
   };
+
+  public canAddSubCategory = () => {
+    return this.contactForm.get('categoryId')?.value === OtherCategoryId;
+  };
+
+  getSubCategoryRequest(
+    categoryId: any,
+    name: any
+  ): SubCategoryRequest | undefined {
+    return this.canAddSubCategory()
+      ? {
+          categoryId: categoryId,
+          name: name,
+        }
+      : undefined;
+  }
 
   getCategories = () => {
     const apiAddress: string = 'api/categories';

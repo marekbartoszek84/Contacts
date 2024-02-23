@@ -43,7 +43,13 @@
           </select>
         </div>
       </div>
-      <div *ngIf="subCategories.length>0"  class="mb-3 row">
+      <div *ngIf="canAddSubCategory()" class="mb-3 row">
+        <label for="subCategoryName" class="col-form-label col-sm-2">Sub Category Name:</label>
+        <div class="col-md-5">
+          <input type="text" id="subCategoryName" formControlName="subCategoryName" class="form-control" />
+        </div>
+      </div>
+      <div *ngIf="subCategories.length>0 && !canAddSubCategory()"  class="mb-3 row">
         <label for="subCategory" class="col-form-label col-sm-2">Sub - Category:</label>
         <div class="col-md-5">
           <select id="subCategory" formControlName="subCategoryId">

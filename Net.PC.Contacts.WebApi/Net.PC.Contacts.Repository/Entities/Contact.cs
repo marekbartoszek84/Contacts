@@ -13,6 +13,7 @@ namespace Net.PC.Contacts.Repository.Entities
         [ForeignKey(nameof(Caategory))]
         public Guid? CategoryId { get; set; }
         public Category? Caategory { get; set; }
+        [ForeignKey(nameof(SubCategory))]
         public Guid? SubCategoryId { get; set; }
         public SubCategory? SubCategory { get; set; }
         public string? Phone { get; set; }
